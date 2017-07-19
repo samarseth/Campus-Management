@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'primeng/primeng';
 import {DropdownModule} from 'primeng/primeng';
+import {ToggleButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {DropdownModule} from 'primeng/primeng';
     BrowserAnimationsModule,
     FileUploadModule,
     DropdownModule,
+    ToggleButtonModule
   ],
   declarations: [StudentDataComponent]
 })

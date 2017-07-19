@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/primeng';
 
 
+
 @Component({
   selector: 'app-student-data',
   templateUrl: './student-data.component.html',
@@ -73,7 +74,7 @@ export class StudentDataComponent implements OnInit {
   deleteStudent(i: number) {
       this.students.splice(i, 1);
     }
-  editStudent(i: number) {
+  editStudent() {
     this.editButtonSelected = !this.editButtonSelected
   }
 };
