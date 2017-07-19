@@ -1,0 +1,172 @@
+<div class="ui-g">
+  <div class="ui-md-4 ui-lg-1 ui-sm-6 ui-md-offset-2 ui-lg-offset-1 ui-sm-offset-3">
+    <div class="ui-g-12 ui-g-nopad">
+      <span>Year</span>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+        <span class="text-center full-width-item output-text-orange">
+        2015
+        </span>
+    </div>
+  </div>
+  <div class="ui-md-4 ui-lg-3 ui-sm-10  ui-sm-offset-1">
+    <div class="ui-g-12 ui-g-nopad">
+      <span>Campus College Name</span>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+        <span class="text-center full-width-item output-text-orange">
+          University de Cambridge
+        </span>
+    </div>
+  </div>
+  <div class="ui-md-8 ui-lg-3 ui-sm-10 ui-md-offset-2  ui-sm-offset-1 ">
+    <div class="ui-g-12 ui-g-nopad">
+      <span>College Name</span>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+        <span class="text-center full-width-item output-text-orange">
+          University de Cambridge
+        </span>
+    </div>
+  </div>
+  <div class="ui-md-8 ui-lg-2 ui-sm-10 ui-md-offset-2  ui-sm-offset-1">
+    <div class="ui-g-12 ui-g-nopad">
+      <span class="blanck_span">Search</span>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <input pInputText #studentfilter type="text" placeholder="Search" class="full-width-item">
+    </div>
+  </div>
+</div>
+
+<div class="ui-g">
+  <div class="ui-g-2 ui-g-offset-1 ui-lg-2 ui-md-6 ui-sm-6">
+    <button *ngIf="tableEditable == false" pButton class="full-width-item" type="button" icon="fa-pencil-square-o" label="Authorize edition" (click)="toggleTableEditable();"></button>
+    <button *ngIf="tableEditable == true" pButton class="full-width-item ui-button-warning" type="button" icon="fa-square-o" label="Block edition" (click)="toggleTableEditable();"></button>
+  </div>
+  <div class="ui-lg-1 ui-lg-offset-6 text-center">
+    <button (click)="toggleAddStudentForm()" pButton label="add a student" icon="fa-plus-circle" class="vertical-center"></button>
+  </div>
+</div>
+
+
+
+<div class="ui-g">
+  <div class="ui-g-10 ui-g-offset-1 ui-lg-10 ">
+    <p-dataTable [value]="students" [editable]="tableEditable" [immutable]="false" [responsive]="true" [scrollable]="true" scrollHeight="25em" [globalFilter]="studentfilter">
+      <p-column field="registration_number" header="Registration No" [editable]="false"></p-column>
+      <p-column field="roll_number" header="Roll No" [editable]="true"></p-column>
+      <p-column field="first_name" header="First Name" [editable]="true"></p-column>
+      <p-column field="middle_name" header="Middle Name" [editable]="true"></p-column>
+      <p-column field="last_name" header="Last Name" [editable]="true"></p-column>
+      <p-column field="date_birth" header="Date of Birth" [editable]="true"></p-column>
+      <p-column field="mobile_number" header="Mobile Number" [editable]="true"></p-column>
+      <p-column field="email_address" header="Email Address" [editable]="true"></p-column>
+      <p-column header="Valid">
+        <ng-template let-i="rowIndex" pTemplate="body">
+        </ng-template>
+      </p-column>
+      <p-column>
+        <ng-template let-i="rowIndex" pTemplate="body">
+          <button type="button" pButton icon="fa-trash-o" (click)="deleteCollege(i)" class="ui-button-danger" pTooltip="Delete this college"></button>
+        </ng-template>
+      </p-column>
+
+
+    </p-dataTable>
+  </div>
+</div>
+
+
+
+
+<div class="ui-lg-8 ui-lg-offset-2 add-student-contenaire">
+  <div *ngIf="studentFormVisible" [@enterAnimation] class="ui-g ui-lg-12  ng-card">
+    <div class="ui-md-8 ui-lg-2">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Roll No</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" [(ngModel)]="studentToAdd.roll_number">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2 ">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">First Name</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" [(ngModel)]="studentToAdd.first_name">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2 ">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Middle Name</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" [(ngModel)]="studentToAdd.middle_name">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Last Name</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" [(ngModel)]="studentToAdd.last_name">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Date of Birth</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" placeholder="MM/DD/YYYY" [(ngModel)]="studentToAdd.date_birth">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Mobile Number</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" maxlength="10" [(ngModel)]="studentToAdd.mobile_number">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-3">
+      <div class="ui-g-12 ui-g-nopad">
+        <span class="">Email Address</span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <input pInputText type="text" class="full-width-item" [(ngModel)]="studentToAdd.email_address">
+      </div>
+    </div>
+
+    <div class="ui-md-8 ui-lg-2 ui-lg-offset-4">
+      <div class="ui-g-12 ">
+        <button pButton type="button" label="Add this student" icon="fa-plus-circle" class="full-width-item" (click)="addStudentToCollege()"></button>
+      </div>
+      <div class="ui-g-12 ">
+        <button pButton type="button" label="Cancel" icon="fa-times" class="full-width-item ui-button-danger " (click)="toggleAddStudentForm()"></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="ui-g">
+  <div class="ui-lg-offset-4 ui-lg-2 text-center">
+    <p-fileUpload #fubauto mode="basic" name="demo[]" (onUpload)="uploadAuto($event)" auto="true" chooseLabel="Upload Excel Sheet"></p-fileUpload>
+  </div>
+  <div class="ui-md-offset-3 ui-g-3 ui-md-3 ui-lg-2 ui-sm-6">
+    <button pButton class="full-width-item" type="button" icon="fa-floppy-o" label="Save"></button>
+  </div>
+  <div class="ui-g-3 ui-md-3 ui-lg-2 ui-sm-6">
+    <button pButton class="full-width-item" type="button" icon="fa-arrow-up" label="Final Submit" (click)="showDialogFinalSubmit()"></button>
+  </div>
+</div>
+

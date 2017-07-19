@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-2 ui-sm-4 ui-md-4 ui-lg-2">
+      <br>
+      <p-dropdown [options]="years" [(ngModel)]="yearSelected" class="text-center ui-dropdown"></p-dropdown>
+    </div>
+    <div class="ui-g-4 ui-sm-4 ui-md-4 ui-lg-2">
+      <br>
+      <p-dropdown [options]="campusNames" [(ngModel)]="campusSelected" class="text-center ui-dropdown"></p-dropdown>
+    </div>
+    <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
+      <br>
+      <p-dropdown [options]="collegeNames" [(ngModel)]="collegeSelected" class="text-center ui-dropdown"></p-dropdown>
+    </div>
+    <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
+      <span class="full-width-item">Search</span>
+      <input pInputText #studentfilter type="text" placeholder="Search" class="full-width-item text-center">
+    </div>
+  </div>
+
+<!-- [editable]="tableEditable"-->
+  <br>
+
+  <div class="ui-g">
+    <div class="ui-g-12 ui-g-offset-1 ui-lg-12">
+      <p-dataTable   [immutable]="false" [value]="students" [responsive]="true" [scrollable]="true" scrollHeight="25em" [editable] = "editButtonSelected" [globalFilter]="studentfilter" class="full-width-item">
+        <p-column field="registration_number" header="Registration No" [editable]="false"></p-column>
+        <p-column field="college_name" header="College" [editable]="true"></p-column>
+        <p-column field="student_name" header="Student Name" [editable]="true"></p-column>
+        <p-column field="date_birth" header="Date of Birth" [editable]="true"></p-column>
+        <p-column field="email_address" header="Email Address" [editable]="true"></p-column>
+        <p-column header="" [editable]="true"></p-column>
+        <p-column field="tenth_percent" header="10th Class %age" [editable]="true"></p-column>
+        <p-column field="twelfth_percent" header="12th/Diploma %age" [editable]="true"></p-column>
+        <p-column field="graduation_percent" header="Graduation %age" [editable]="true"></p-column>
+        <p-column field="postgraduation_percent" header=" Post Grad %age" [editable]="true"></p-column>
+        <p-column field="tech_score" header="Technical Score" [editable]="true"></p-column>
+        <p-column field="attitude_score" header="Attitude Score" [editable]="true"></p-column>
+        <p-column field="status" header="Status" [editable]="true"></p-column>
+        <p-column header = "Edit/Delete">
+          <ng-template let-i="rowIndex" pTemplate="body">
+            <button type="button" *ngIf = "!editButtonSelected" pButton icon="fa-pencil-square-o" (click)="editStudent(i)" class="ui-button-warning" pTooltip="Edit this student"></button>
+            <button type="button" *ngIf = "editButtonSelected" pButton icon="fa-floppy-o" (click)="editStudent(i)" class="ui-button-warning" pTooltip="Edit this student"></button>
+            <button type="button" pButton icon="fa-trash-o" (click)="deleteStudent(i)" class="ui-button-danger" pTooltip="Delete this student"></button>
+          </ng-template>
+
+        </p-column>
+      </p-dataTable>
+    </div>
+  </div>
+
+
+
+  <div class="ui-g">
+    <div class="ui-g-4 ui-sm-6 ui-md-6 ui-lg-4 text-center">
+      <button pButton type="button" label="Extract Student Detail" class="full-width-item"></button>
+    </div>
+    <div class="ui-g-4 ui-sm-6 ui-md-6 ui-lg-4 text-center">
+      <button pButton type="button" label="Save Updates" class="full-width-item"></button>
+    </div>
+    <div class="ui-g-4 ui-sm-12 ui-md-12 ui-lg-4 text-center">
+      <button pButton type="button" label="Resend Link to Selected" class="full-width-item"></button>
+    </div>
+  </div>
+
+</div>

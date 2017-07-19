@@ -1,0 +1,156 @@
+<div class = "ui-g">
+  <div class="ui-g-1 ui-sm-6 ui-md-6 ui-lg-1">
+    <span class="text-center"> Year:</span>
+    <span class="text-center full-width-item output-text-orange"> </span>
+    <!--<input type="text" pInputText placeholder="Year" class = "full-width-item text-center" [(ngModel)] = "yearNumber" label = "Year">-->
+  </div>
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center"> Campus Name:</span>
+    <span class="text-center full-width-item output-text-orange"></span>
+    <!--<input type="text" pInputText placeholder="Campus Name" class = "full-width-item text-center" [(ngModel)] = "campusName">-->
+  </div>
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center"> Registration Number:</span>
+    <span class="text-center full-width-item output-text-orange"></span>
+    <!--<input type="text" pInputText placeholder="Registration Number" class = "full-width-item text-center" [(ngModel)] = "registrationNumber">-->
+  </div>
+  <div class="ui-g-5 ui-sm-6 ui-md-6 ui-lg-5 text-center" >
+    <!--<span>Select College Name: </span>-->
+    <br>
+    <p-dropdown [options]="colleges" [(ngModel)]="selectedCollege" class="full-width-item text-center"></p-dropdown>
+  </div>
+</div>
+
+
+<div class = "ui-g">
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center">First Name:</span>
+    <input type="text" pInputText placeholder="First Name" class = " full-width-item text-center" [(ngModel)] = "firstName">
+  </div>
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center"> Middle Name:</span>
+    <input type="text" pInputText placeholder="Middle Name" class = " full-width-item text-center" [(ngModel)] = "middleName">
+  </div>
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center">Last Name:</span>
+    <input type="text" pInputText placeholder="Last Name" class = " full-width-item text-center" [(ngModel)] = "lastName">
+  </div>
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center">University Roll No.:</span>
+    <input type="text" pInputText placeholder="University Roll No." class = " full-width-item text-center" [(ngModel)]="universityNumber">
+  </div>
+</div>
+
+
+
+<div class = "ui-g">
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center">Email Address:</span>
+    <input type="text" pInputText placeholder="Email Address" class = " full-width-item text-center" [(ngModel)]="emailAdd">
+  </div>
+  <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3">
+    <span class="text-center">Mobile Number:</span>
+    <input type="text" pInputText placeholder="Mobile Number" class = " full-width-item text-center" [(ngModel)]="mobileNumber">
+  </div>
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center">Date of Birth:</span>
+    <input type="text" pInputText placeholder="Date of Birth" class = " full-width-item text-center" [(ngModel)]="DOB">
+  </div>
+  <div class="ui-g-1 ui-sm-6 ui-md-6 ui-lg-1 text-center">
+   <br>
+    <p-dropdown [options]="genders" [(ngModel)]="selectedGender" class="full-width-item text-center" ></p-dropdown>
+  </div>
+  <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
+    <span class="text-center">Upload Your Photograph:</span>
+    <p-fileUpload name="myfile[]" url="./upload.php" title="Photograph"> </p-fileUpload>
+  </div>
+</div>
+
+
+<div class = "ui-g">
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center">10th Class Percentage:</span>
+    <input type="text" pInputText placeholder="10th Class Percentage" class = " full-width-item text-center" [(ngModel)]="tenthPercentage">
+  </div>
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center">Year of Passing:</span>
+    <input type="text" pInputText placeholder="Year of Passing" class = " full-width-item text-center" [(ngModel)]="tenthPassing">
+  </div>
+  <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
+    <span class="text-center">Board:</span>
+    <input type="text" pInputText placeholder="Board" class = " full-width-item text-center" [(ngModel)]="academicBoard">
+  </div>
+</div>
+
+
+
+<div class = "ui-g">
+  <div class="ui-g-12 ui-sm-12 ui-md-12 ui-lg-12">
+    <span class="text-center">12th Grade Board:</span>
+    <p-radioButton name="groupname" value="val1" label="12th Class" [(ngModel)]="selectedValue"></p-radioButton>
+    <p-radioButton name="groupname" value="val2" label="Diploma" [(ngModel)]="selectedValue"></p-radioButton>
+  </div>
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center">Percentage Marks:</span>
+    <input type="text" pInputText placeholder="Percentage Marks" class = " full-width-item text-center">
+  </div>
+  <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+    <span class="text-center">Year of Passing:</span>
+    <input type="text" pInputText placeholder="Year of Passing" class = " full-width-item text-center">
+  </div>
+  <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
+    <span class="text-center">Board:</span>
+    <input type="text" pInputText placeholder="Board" class = " full-width-item text-center">
+  </div>
+</div>
+
+<div class="ui-g">
+  <div class="ui-g-7 ui-g-nopad ui-sm-12 ui-md-12 ui-lg-7">
+    <div class="ui-g">
+      <div class="ui-g-4 ui-sm-12 ui-md-6 ui-lg-4">
+        <br>
+        <p-dropdown [options]="courses" [(ngModel)]="selectedCourse" class = "full-width-item text-center"></p-dropdown>
+      </div>
+      <div class="ui-g-2 ui-sm-12 ui-md-6 ui-lg-2">
+        <span class="text-center">Graduation %age:</span>
+        <input type="text" pInputText placeholder="Graduation Percentage" class = "full-width-item text-center">
+      </div>
+      <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+        <span class="text-center">Year of Passing:</span>
+        <input type="text" pInputText placeholder="Year of Passing" class = " full-width-item text-center">
+      </div>
+      <div class="ui-g-4 ui-sm-6 ui-md-6 ui-lg-4">
+        <span class="text-center">University:</span>
+        <input type="text" pInputText placeholder="University" class = " full-width-item text-center">
+      </div>
+      <div class="ui-g-4 ui-sm-12 ui-md-6  ui-lg-4">
+        <br>
+        <p-dropdown [options]="PGcourses" [(ngModel)]="selectedPGCourse" class = "full-width-item text-center"></p-dropdown>
+      </div>
+      <div class="ui-g-2 ui-sm-12 ui-md-6 ui-lg-2">
+        <span class="text-center">Post Graduation %age:</span>
+        <input type="text" pInputText placeholder="Post Graduation Percentage" class = " full-width-item text-center">
+      </div>
+      <div class="ui-g-2 ui-sm-6 ui-md-6 ui-lg-2">
+        <span class="text-center">Year of Passing:</span>
+        <input type="text" pInputText placeholder="Year of Passing" class = " full-width-item text-center">
+      </div>
+      <div class="ui-g-4 ui-sm-6 ui-md-6 ui-lg-4">
+        <span class="text-center">University:</span>
+        <input type="text" pInputText placeholder="University" class = " full-width-item text-center">
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-5 ui-sm-12 ui-md-12 ui-lg-5 ">
+    <div class="ui-g-12 ui-sm-6 ui-md-6 ui-lg-12">
+      <div class="ui-lg-3">
+        <button pButton type="button" (click)="onclick()" label="Submit Details" class=" full-width-item text-center"></button>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-sm-6 ui-md-6 ui-lg-12" >
+      <div class="ui-lg-3">
+        <button pButton type="button" (click)="onclick2()" label="Generate Hall Ticket" class=" full-width-item text-center" ></button>
+      </div>
+    </div>
+  </div>
+</div>
