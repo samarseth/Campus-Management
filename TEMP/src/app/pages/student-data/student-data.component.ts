@@ -77,6 +77,10 @@ export class StudentDataComponent implements OnInit {
   editStudent() {
     this.editButtonSelected = !this.editButtonSelected
   }
+  highlightRow() {
+    return 'red-highlighting';
+  }
+
 };
 
 

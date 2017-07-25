@@ -13,19 +13,20 @@ import {CollegeStudentComponent} from './pages/college-student/college-student.c
 import {StudentComponent} from './pages/student/student.component';
 import {StudentModule} from './pages/student/student.module';
 import { StudentDataComponent } from './pages/student-data/student-data.component';
-import {StudentDataModule} from './pages/student-data/student-data.module'
-
+import {StudentDataModule} from './pages/student-data/student-data.module';
+import {SigninComponent} from './pages/signin/signin.component';
+import {SigninModule} from './pages/signin/signin.module';
+import {CampusCollegesModule} from './pages/campus-colleges/campus-colleges.module'
+import {CampusCollegesComponent} from './pages/campus-colleges/campus-colleges.component';
 
 const appRoutes: Routes = [
   { path: 'campusmaintenance', component: CampusComponent },
   { path: 'collegestudent', component: CollegeStudentComponent },
   { path: 'student', component: StudentComponent },
-  {path: 'studentdata', component: StudentDataComponent}
+  {path: 'studentdata', component: StudentDataComponent},
+  {path: 'signin', component: SigninComponent},
+  {path: 'campuscolleges', component: CampusCollegesComponent}
 ];
-
-
-
-
 
 
 @NgModule({
@@ -40,6 +41,8 @@ const appRoutes: Routes = [
     StudentModule,
     CampusModule,
     ButtonModule,
+    CampusCollegesModule,
+    SigninModule,
     StudentDataModule,
     RouterModule.forRoot(
       appRoutes,

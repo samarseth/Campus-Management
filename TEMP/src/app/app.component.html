@@ -1,6 +1,9 @@
-<button pButton type="button" [routerLink]="['/campusmaintenance']" label="Campus Management"></button>
-
-<button pButton type="button" [routerLink]="['/collegestudent']" label="College Student"></button>
-<button pButton type="button" [routerLink]="['/student']" label="Student"></button>
-<button pButton type="button" [routerLink]="['/studentdata']" label="Student Data"></button>
-<router-outlet></router-outlet>
+<div class="container">
+  <button pButton type="button" [routerLink]="['/campusmaintenance']" label="Campus Management"></button>
+  <button pButton type="button" [routerLink]="['/collegestudent']" label="College Student"></button>
+  <button pButton type="button" [routerLink]="['/student']" label="Student"></button>
+  <button pButton type="button" [routerLink]="['/studentdata']" label="Student Data"></button>
+  <button pButton type="button" [routerLink]="['/campuscolleges']" label="Campus College Data"></button>
+  <button pButton type="button" [routerLink]="['/signin']" label="Sign In"></button>
+  <router-outlet></router-outlet>
+</div>

@@ -1,3 +1,28 @@
-<p>
-  signin works!
-</p>
+<div class="container">
+
+      <h2 class="text-center"><label>Please Enter Your Sign In Details</label></h2>
+
+      <br><br>
+
+    <div class="row text-center">
+      <div class="ui-g-12">
+      <span> Enter Username:</span> <br>
+      <input type="text" class="text-center" pInputText [(ngModel)]="username" placeholder="Enter Username" pTooltip="Enter Your Username">
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="ui-g-12">
+      <span> Enter Password: </span> <br>
+      <input type="password" class="text-center" pPassword [ngModel]="password" placeholder="Enter Password" pTooltip="Enter Your Password">
+      </div>
+    </div>
+
+
+    <div class="row text-center">
+      <div class="ui-g-12">
+        <button pButton type="button" label="Submit"></button>
+      </div>
+    </div>
+
+</div>
