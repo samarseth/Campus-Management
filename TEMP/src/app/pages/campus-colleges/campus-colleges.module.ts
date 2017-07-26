@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'primeng/primeng';
 import {DropdownModule} from 'primeng/primeng';
 import {SharedModule} from 'primeng/primeng';
+import {CollegeYearService} from '../../services/college-year/college-year.service';
+import {ServiceUtilsService} from '../../utils/services/service-utils/service-utils.service';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import {SharedModule} from 'primeng/primeng';
     FileUploadModule,
     DropdownModule
   ],
-  declarations: [CampusCollegesComponent]
+  declarations: [CampusCollegesComponent],
+  providers: [CollegeYearService, ServiceUtilsService]
 })
 export class CampusCollegesModule { }

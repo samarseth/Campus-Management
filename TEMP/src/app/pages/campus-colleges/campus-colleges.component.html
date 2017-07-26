@@ -1,11 +1,9 @@
-
-
   <div class="ui-g">
     <div class="ui-g-3 ui-sm-10 ui-md-4 ui-lg-2 ui-lg-offset-2 ui-md-offset-2 ui-sm-offset-1 text-center full-width-item">
-      <p-dropdown [options]="years" [(ngModel)]="selectedYear" [autoWidth]="false"></p-dropdown>
+      <p-dropdown [options]="yearSelectItem" [(ngModel)]="selectedYear" [autoWidth]="false" placeholder = "Year"></p-dropdown>
     </div>
     <div class="ui-g-5 ui-sm-10 ui-md-4 ui-lg-3 ui-sm-offset-1 text-center full-width-item">
-      <p-dropdown [options]="campuses" [(ngModel)]="selectedCampus" [autoWidth]="false"></p-dropdown>
+      <p-dropdown [options]="campuses" [(ngModel)]="selectedCampus" [autoWidth]="false" placeholder = "Select Campus Name"></p-dropdown>
     </div>
     <div class="ui-g-4 ui-sm-10 ui-md-8 ui-lg-3 ui-sm-offset-1 text-center ui-md-offset-2">
       <input pInputText #campusfilter type="text" placeholder="Search" class="full-width-item">

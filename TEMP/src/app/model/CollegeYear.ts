@@ -6,4 +6,11 @@ export class CollegeYear {
   college: College;
   year: string;
   campus: Campus;
+
+
+  constructor(college: College, year: string, campus: Campus) {
+    this.college = college;
+    this.year = year;
+    this.campus = campus;
+  }
 }

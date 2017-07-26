@@ -1,3 +1,4 @@
+import { StudentService } from '../../services/student/student.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StudentComponent } from './student.component';
@@ -12,6 +13,7 @@ import {ButtonModule} from 'primeng/primeng';
   imports: [
     CommonModule, InputTextModule, DropdownModule, FormsModule, FileUploadModule, RadioButtonModule
   ],
-  declarations: [StudentComponent]
+  declarations: [StudentComponent],
+  providers: [StudentService]
 })
 export class StudentModule { }

@@ -7,6 +7,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'primeng/primeng';
 import {DropdownModule} from 'primeng/primeng';
 import {ToggleButtonModule} from 'primeng/primeng';
+import {CheckboxModule} from 'primeng/primeng';
+import {ServiceUtilsService} from '../../utils/services/service-utils/service-utils.service';
+import {CollegeService} from '../../services/college/college.service';
+import {StudentService} from '../../services/student/student.service';
 
 @NgModule({
   imports: [
@@ -19,8 +23,10 @@ import {ToggleButtonModule} from 'primeng/primeng';
     BrowserAnimationsModule,
     FileUploadModule,
     DropdownModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    CheckboxModule
   ],
-  declarations: [StudentDataComponent]
+  declarations: [StudentDataComponent],
+  providers: [ServiceUtilsService, CollegeService, StudentService]
 })
 export class StudentDataModule { }

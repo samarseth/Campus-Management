@@ -1,3 +1,20 @@
+
+#college-student-component{
+}
+
 .add-student-contenaire{
   min-height: 21vh;
+}
+
+.valid-icone{
+  width: 50%;
+}
+
+.table-contenaire{
+  min-height: 45vh;
+}
+
+
+.ui-datatable-scrollable-body{
+  min-height: 300px;
 }

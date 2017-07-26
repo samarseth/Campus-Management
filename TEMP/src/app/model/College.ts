@@ -5,10 +5,10 @@
  * Created by pbazin on 7/5/2017.
  */
 export class College {
-  name: string;
-  code: string;
-  tpo_name: string;
-  tpo_email_address: string;
-  tpo_mobile_number: string;
-
+  collegeCode: string;
+  collegeName: string;
+  collegeTpoName: string;
+  collegeTpoEmailAddress: string;
+  collegeTpoMobileNumber: string;
+  collegeTpoLandLineNumber: string;
 }

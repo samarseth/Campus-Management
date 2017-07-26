@@ -1,20 +1,16 @@
 <div class="container">
   <div class="ui-g">
-    <div class="ui-g-2 ui-sm-4 ui-md-4 ui-lg-2">
-      <br>
-      <p-dropdown [options]="years" [(ngModel)]="yearSelected" class="text-center ui-dropdown"></p-dropdown>
+    <div class="ui-g-2 ui-sm-4 ui-md-4 ui-lg-2 ui-lg-offset-1">
+      <p-dropdown [options]="yearSelectItem" [(ngModel)]="selectedYear"  class="text-center full-width-item" autoWidth placeholder="Year" (onChange)="yearIsSelected($event)"></p-dropdown>
     </div>
     <div class="ui-g-4 ui-sm-4 ui-md-4 ui-lg-2">
-      <br>
-      <p-dropdown [options]="campusNames" [(ngModel)]="campusSelected" class="text-center ui-dropdown"></p-dropdown>
+      <p-dropdown [options]="campusSelectItem" [(ngModel)]="selectedCampus" class="text-center full-width-item" autoWidth placeholder="Select Campus Name" [disabled]="!yearSelectedFlag" (onChange)="campusIsSelected()"></p-dropdown>
     </div>
     <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
-      <br>
-      <p-dropdown [options]="collegeNames" [(ngModel)]="collegeSelected" class="text-center ui-dropdown"></p-dropdown>
+      <p-dropdown [options]="collegeYearSelectItem" [(ngModel)]="selectedCollegeYear" class="full-width-item" autoWidth placeholder="Select College Name" [disabled]="!campusSelectedFlag" (onChange)="collegeYearIsSelected()"></p-dropdown>
     </div>
     <div class="ui-g-3 ui-sm-12 ui-md-12 ui-lg-3">
-      <span class="full-width-item">Search</span>
-      <input pInputText #studentfilter type="text" placeholder="Search" class="full-width-item text-center">
+      <input pInputText #studentfilter type="text" placeholder="Search" class="full-width-item">
     </div>
   </div>
 
@@ -27,26 +23,32 @@
     </div>
   </div>
 
-  <div class="ui-g">
-    <div class="ui-g-12 ui-g-offset-1 ui-lg-12">
-      <p-dataTable [immutable]="false" [value]="students" [responsive]="true" [scrollable]="true" scrollHeight="25em" [editable] = "editButtonSelected" [globalFilter]="studentfilter" class="full-width-item">
-        <p-column field="registration_number" header="Registration No" [style]="{'width':'6%'}" [editable]="false" ></p-column>
-        <p-column field="college_name" header="College" [editable]="true" [style]="{'width':'8%'}" style="background-color:rgba(3, 223, 564, 0.51);"></p-column>
-        <p-column field="student_name" header="Student Name" [editable]="true" [style]="{'width':'10%'}"></p-column>
-        <p-column field="date_birth" header="Date of Birth" [editable]="true" [style]="{'width':'7%'}"></p-column>
+  <div class="ui-g table-contenaire">
+    <div class="ui-g-10 ui-g-offset-1">
+      <p-dataTable [immutable]="false"
+                   [value]="students"
+                   [responsive]="true"
+                   [scrollable]="true"
+                   scrollHeight="25em"
+                   [editable] = "editButtonSelected"
+                   [globalFilter]="studentfilter"
+                   class="text-center">
+        <p-column field="registrationNumber" header="Registration No" [style]="{'width':'6%'}" [editable]="false" ></p-column>
+        <p-column field="college_name" header="College" [editable]="false" [style]="{'width':'8%'}"></p-column>
+        <p-column field="student_name" header="Student Name" [editable]="false" [style]="{'width':'10%'}"></p-column>
+        <p-column field="date_birth" header="Date of Birth" [editable]="false" [style]="{'width':'7%'}"></p-column>
         <p-column field="email_address" header="Email Address" [editable]="true" [style]="{'width':'15%'}"></p-column>
-        <p-column field="tenth_percent" header="10th Class %age" [editable]="true" [style]="{'width':'7%'}"></p-column>
-        <p-column field="twelfth_percent" header="12th/Diploma %age" [editable]="true" [style]="{'width':'7%'}"></p-column>
-        <p-column field="graduation_percent" header="Graduation %age" [editable]="true" [style]="{'width':'7%'}"></p-column>
-        <p-column field="postgraduation_percent" header=" Post Grad %age" [editable]="true" [style]="{'width':'7%'}"></p-column>
-        <p-column field="tech_score" header="Technical Score" [editable]="true" [style]="{'width':'7%'}"></p-column>
-        <p-column field="attitude_score" header="Attitude Score" [editable]="true" [style]="{'width':'7%'}"></p-column>
+        <p-column field="tenth_percent" header="10th Class %age" [editable]="false" [style]="{'width':'7%'}"></p-column>
+        <p-column field="twelfth_percent" header="12th/Diploma %age" [editable]="false" [style]="{'width':'7%'}"></p-column>
+        <p-column field="graduation_percent" header="Graduation %age" [editable]="false" [style]="{'width':'7%'}"></p-column>
+        <p-column field="postgraduation_percent" header=" Post Grad %age" [editable]="false" [style]="{'width':'7%'}"></p-column>
+        <p-column field="tech_score" header="Technical Score" [editable]="false" [style]="{'width':'7%'}"></p-column>
+        <p-column field="attitude_score" header="Attitude Score" [editable]="false" [style]="{'width':'7%'}"></p-column>
         <p-column field="status" header="Status" [editable]="true" [style]="{'width':'8%'}"></p-column>
-        <p-column header = "Edit/Delete" [style]="{'width':'5%'}">
+        <p-column [style]="{'width':'5%'}">
           <ng-template let-i="rowIndex" pTemplate="body">
-            <button type="button" pButton icon="fa-trash-o" (click)="deleteStudent(i)" class="ui-button-danger text-center" pTooltip="Delete this student"></button>
+            <p-checkbox></p-checkbox>
           </ng-template>
-
         </p-column>
       </p-dataTable>
     </div>
@@ -54,7 +56,7 @@
 
 
   <div class="ui-g">
-    <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3 text-center">
+    <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3 ui-lg-offset-2 text-center">
       <button pButton type="button" label="Extract Student Detail" class="full-width-item"></button>
     </div>
     <div class="ui-g-3 ui-sm-6 ui-md-6 ui-lg-3 text-center">

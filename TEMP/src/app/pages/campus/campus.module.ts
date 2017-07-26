@@ -8,6 +8,9 @@ import {DataTableModule, SharedModule} from 'primeng/primeng';
 import {FormsModule} from '@angular/forms';
 import {TooltipModule} from 'primeng/primeng';
 import {DialogModule} from 'primeng/primeng';
+import {CollegeYearService} from '../../services/college-year/college-year.service';
+import {HttpModule} from '@angular/http';
+import {GrowlModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -19,8 +22,11 @@ import {DialogModule} from 'primeng/primeng';
     SharedModule,
     FormsModule,
     TooltipModule,
-    DialogModule
+    DialogModule,
+    HttpModule,
+    GrowlModule
   ],
-  declarations: [CampusComponent]
+  declarations: [CampusComponent],
+  providers: [CollegeYearService]
 })
 export class CampusModule { }

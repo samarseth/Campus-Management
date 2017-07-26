@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/primeng';
+import {ServiceUtilsService} from "../../utils/services/service-utils/service-utils.service";
+// import {ServiceUtilsService} from '../../utils/services/service-utils/service-utils.service';
 
 
 @Component({
@@ -7,8 +9,9 @@ import {SelectItem} from 'primeng/primeng';
   templateUrl: './campus-colleges.component.html',
   styleUrls: ['./campus-colleges.component.css']
 })
+
 export class CampusCollegesComponent implements OnInit {
-  years: SelectItem[];
+  yearSelectItem: SelectItem[];
   selectedYear: string;
 
   campuses: SelectItem[];
@@ -16,17 +19,11 @@ export class CampusCollegesComponent implements OnInit {
 
   campusArray: CampusCollegesModel[] = [];
 
-  constructor() {
-    this.years = [];
-    this.years.push({label: 'Select Year', value: null});
-    this.years.push({label: '2017', value: 1});
-    this.years.push({label: '2016', value: 2 });
-    this.years.push({label: '2015',  value: 3});
-    this.years.push({label: '2014',  value: 4});
-    this.years.push({label: '2013', value: 5});
+  constructor(private serviceUtils: ServiceUtilsService) {
+    this.yearSelectItem = [];
+    this.yearSelectItem = this.serviceUtils.getYearSelectItems();
 
     this.campuses = [];
-    this.campuses.push({label: 'Select Campus Name', value: null});
     this.campuses.push({label: 'University of Delhi Campus 1', value: 1});
     this.campuses.push({label: 'University of Delhi Campus 2', value: 2 });
     this.campuses.push({label: 'University of Delhi Campus 3',  value: 3});
@@ -57,7 +54,6 @@ export class CampusCollegesComponent implements OnInit {
   }
 
 }
-
 
 export class CampusCollegesModel {
   college_name: string;
